@@ -1,0 +1,29 @@
+<!-- <div *ngIf="crisis">
+  <h2>{{crisis.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{crisis.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="crisis.name" placeholder="name"/> 
+    </label>
+  </div>
+</div> -->
+
+<h2>crises</h2>
+<div *ngIf="crisis$ | async as crisis">
+  <h3>"{{ crisis.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ crisis.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="crisis.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="gotocrises(crisis)">Back</button>
+  </p>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

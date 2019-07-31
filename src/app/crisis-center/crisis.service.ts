@@ -3,27 +3,27 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Crisis } from './crisis';
+import { CRISES } from './mock-crises';
 import { MessageService } from '../message.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HeroService {
+export class crisisService {
 
   constructor(private messageService: MessageService) { }
 
-  getHeroes(): Observable<Hero[]> {
-    // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('HeroService: fetched heroes');
-    return of(HEROES);
+  getcrises(): Observable<Crisis[]> {
+    // TODO: send the message _after_ fetching the crises
+    this.messageService.add('crisisService: fetched crises');
+    return of(CRISES);
   }
 
-  getHero(id: number | string) {
-    return this.getHeroes().pipe(
+  getcrisis(id: number | string) {
+    return this.getcrises().pipe(
       // (+) before `id` turns the string into a number
-      map((heroes: Hero[]) => heroes.find(hero => hero.id === +id))
+      map((crises: Crisis[]) => crises.find(crisis => crisis.id === +id))
     );
   }
 }
@@ -34,4 +34,4 @@ export class HeroService {
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
-*/  
+*/
